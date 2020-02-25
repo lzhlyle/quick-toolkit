@@ -12,6 +12,6 @@ public class IndexController {
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public Object index(Model model, HttpServletRequest request) {
-        return "/index";
+        return "index";
     }
 }
