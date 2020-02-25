@@ -1,0 +1,17 @@
+server:
+    port: 8080
+    context-path: /
+    
+info:
+    app.name: com.lzhlyle.quick.toolkit
+    company.name: lzhlyle.com
+    build.artifactId: $project.artifactId$
+    build.version: $project.verson$
+
+spring:
+  jmx:
+    default-domain: toolkit
+  application:
+    name: quick-toolkit
+  thymeleaf:
+    cache: false

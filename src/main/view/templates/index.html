@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Quick Toolkit</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap-theme.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Quick Toolkit</h1>
+
+    <h3>Toolkit 1. Leetcode note's fragment generator</h3>
+    <div>
+        <div class="row">
+            <div class="form-group col-xs-3">
+                <input type="text" class="form-control" id="t1-cn-no" placeholder="number"
+                       onfocus="this.select();">
+            </div>
+            <div class="form-group col-xs-9">
+                <input type="text" class="form-control" id="t1-cn-url" placeholder="leetcode-cn problem url"
+                       onfocus="this.select();">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <textarea class="form-control" rows="4" id="t1-output-markdown" placeholder="markdown"
+                          onfocus="this.select();"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-6">
+                <input type="text" class="form-control" id="t1-camel-name" placeholder="camel class name"
+                       onfocus="this.select();">
+            </div>
+            <div class="form-group col-xs-6">
+                <button type="button" id="t1-lc" class="btn btn-success col-xs-12" data-toolkit="/">To leetcode.com
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script th:src="@{/js/jquery.js}" type="text/javascript"></script>
+<script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.js}" type="text/javascript"></script>
+<script th:src="@{/index/index.js}" type="text/javascript"></script>
+<script type="text/javascript">
+    // t1
+    {
+        $('#t1-cn-no').change(function () {
+            index.t1.refresh($('#t1-cn-no').val(), $('#t1-cn-url').val(), $('#t1-output-markdown'), $('#t1-camel-name'), $('#t1-lc'));
+        });
+        $('#t1-cn-url').change(function () {
+            index.t1.refresh($('#t1-cn-no').val(), $('#t1-cn-url').val(), $('#t1-output-markdown'), $('#t1-camel-name'), $('#t1-lc'));
+        });
+        $('#t1-lc').click(function () {
+            window.open($(this).attr('data-toolkit'), '_blank');
+        });
+    }
+</script>
+</html>
